@@ -8,7 +8,7 @@ from PyQt5.QtWidgets import QMainWindow, QApplication
 
 class GitExample(QMainWindow):
     def __init__(self):
-        super().__init__()
+        super(self).__init__()
         uic.loadUi('UI.ui', self)
         self.clicked = False
         self.initUI()
@@ -23,12 +23,13 @@ class GitExample(QMainWindow):
     def paintEvent(self, event):
         if not self.clicked:
             return
-        r = random.randint(1, 500)
+        r = random.randint(1, 300)
 
         qp = QPainter()
         qp.begin(self)
+        c1, c2, c3 = random.randint(1, 255), random.randint(1, 255), random.randint(1, 255)
 
-        color = QColor(255, 255, 0)
+        color = QColor(c1, c2, c3)
         qp.setBrush(color)
 
         qp.drawEllipse(10, 50, r, r)
